@@ -23,6 +23,7 @@ const Shoe = sequelize.define('Shoe', {
     name: {type: DataTypes.STRING, unique: true, allowNull: false},
     price: {type: DataTypes.INTEGER, allowNull: false},
     rating: {type: DataTypes.INTEGER, defaultValue: 0},
+    size: {type:DataTypes.FLOAT, allowNull:false},
     img: {type: DataTypes.STRING, allowNull: false},
 })
 
@@ -50,6 +51,8 @@ const ShoeInfo = sequelize.define('shoe_info', {
 const TypeBrand = sequelize.define('type_brand', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 })
+
+
 
 
 User.hasOne(Basket)
