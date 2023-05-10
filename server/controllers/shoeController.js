@@ -6,11 +6,11 @@ const ApiError = require('../error/ApiError')
 class ShoeController {
     async create(req, res, next) {
         try {
-            let {name, price, brandId, typeId, info} = req.body
+            let {name, price, brandId, typeId, size, info} = req.body
             const {img} = req.files
             let filename = uuid.v4() + ".jpg"
             img.mv(path.resolve(__dirname, '..', 'static', filename))
-            const shoe = await Shoe.create({name, price, brandId, typeId, img: filename})
+            const shoe = await Shoe.create({name, price, brandId, size, typeId, img: filename})
 
             if (info) {
                 info = JSON.parse(info)
