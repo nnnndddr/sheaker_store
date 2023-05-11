@@ -26,8 +26,10 @@ export const createShoe = async (shoe) => {
     return data
 }
 
-export const fetchShoes = async () => {
-    const {data} = await $host.get('api/shoe')
+export const fetchShoes = async (typeId, brandId, page, limit = 5) => {
+    const {data} = await $host.get('api/shoe',{params:{
+            typeId,brandId,page,limit
+        }})
     return data
 }
 

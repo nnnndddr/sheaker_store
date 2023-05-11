@@ -7,6 +7,7 @@ import ShoeList from "../components/ShoeList";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 import {fetchBrands, fetchShoes, fetchTypes} from "../http/shoeAPI";
+import Pages from "../components/Pages";
 
 
 const Shop = observer(() => {
@@ -15,8 +16,18 @@ const Shop = observer(() => {
     useEffect(() => {
         fetchTypes().then(data => shoe.setTypes(data))
         fetchBrands().then(data => shoe.setBrands(data))
-        fetchShoes().then(data => shoe.setShoes(data.rows))
+        fetchShoes(null, null, 1, 3).then(data => {
+            shoe.setShoes(data.rows)
+            shoe.setTotalCount(data.count)
+        })
     }, [])
+
+    useEffect(() => {
+        fetchShoes(shoe.selectedType.id, shoe.selectedBrand.id, shoe.page, 3).then(data => {
+            shoe.setShoes(data.rows)
+            shoe.setTotalCount(data.count)
+        })
+    }, [shoe.page, shoe.selectedType, shoe.selectedBrand])
 
     return (
         <Container>
@@ -27,6 +38,7 @@ const Shop = observer(() => {
                 </Col>
                 <Col md={9}>
                     <ShoeList/>
+                    <Pages/>
                 </Col>
             </Row>
         </Container>
