@@ -22,7 +22,7 @@ const Shoe = sequelize.define('Shoe', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, unique: true, allowNull: false},
     price: {type: DataTypes.INTEGER, allowNull: false},
-    rating: {type: DataTypes.INTEGER, defaultValue: 0},
+    desc: {type: DataTypes.STRING, allowNull:false},
     size: {type:DataTypes.FLOAT, allowNull:false},
     img: {type: DataTypes.STRING, allowNull: false},
 })

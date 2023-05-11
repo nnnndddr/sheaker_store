@@ -9,7 +9,7 @@ const ShoeItem = ({shoe}) => {
     return (
         <Col md={4} onClick={() => history(SHOE_ROUTE+"/"+shoe.id)}>
             <Card className="border-white" style={{width:300, cursor:'pointer'}}>
-                <Image width={300} height={200} src={shoe.img}/>
+                <Image width={300} height={200} src={process.env.REACT_APP_API_URL + shoe.img}/>
                 <div className="d-flex justify-content-between align-items-center">
                     <div>Nike</div>
                     <div>
