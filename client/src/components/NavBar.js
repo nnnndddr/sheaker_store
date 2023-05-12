@@ -12,6 +12,7 @@ const NavBar = observer(() => {
     const {user} = useContext(Context)
     const history = useNavigate()
     const logOut = () => {
+        user.setIsAuth(false)
         user.setUser({})
         user.setIsAuth(false)
     }
@@ -38,9 +39,8 @@ const NavBar = observer(() => {
                             href={REGISTRATION_ROUTE}
                             variant={"outline-light"}
                             onClick={() => history(LOGIN_ROUTE)}
-
                         >
-                            Авторизация</Button>
+                            Войти</Button>
                     </Nav>
                 }
 

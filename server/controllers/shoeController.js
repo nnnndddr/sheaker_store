@@ -74,6 +74,19 @@ class ShoeController {
         return res.json(shoe)
     }
 
+    async deleteById(req, res) {
+        const {id} = req.params
+        const item = await Shoe.findOne(
+            {
+                where: {id},
+                include: [{model: ShoeInfo, as: 'info'}]
+            })
+        await item.destroy()
+
+
+        return res.json(item)
+    }
+
 }
 
 module.exports = new ShoeController()

@@ -6,6 +6,12 @@ export const createType = async (type) => {
     return data
 }
 
+export const deleteShoe = async (id) => {
+    const {data} = await $host.get('api/shoe/delete/'+id)
+
+    return data
+}
+
 export const fetchTypes = async () => {
     const {data} = await $host.get('api/type')
     return data

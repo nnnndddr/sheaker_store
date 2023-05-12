@@ -21,11 +21,6 @@ app.use('/api', router)
 //последний мидлвейр
 app.use(errorHandler)
 
-// app.get('/', (req,res) => {
-//     res.status(200).json({message:'Alright!!!!!!!!!!'})
-// })
-
-
 const start = async () => {
     try {
         await sequalize.authenticate()
