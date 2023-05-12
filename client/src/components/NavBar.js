@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {NavLink, useNavigate} from "react-router-dom";
-import {ADMIN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../utils/consts";
+import {ADMIN_ROUTE, BASKET_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../utils/consts";
 import {Button} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
 
@@ -25,6 +25,7 @@ const NavBar = observer(() => {
                         {/*<Nav.Link href="#features">Features</Nav.Link>*/}
                         {/*<Nav.Link href="#pricing">Pricing</Nav.Link>*/}
                         <Button variant={"outline-warning"} href={ADMIN_ROUTE} className="me-2">Админ панель</Button>
+                        <Button variant={"outline-success"} href={BASKET_ROUTE} className="me-2">Корзина</Button>
                         <Button variant={"outline-danger"} onClick={() => logOut()}>Выйти</Button>
                         {/*<Button variant={"outline-light"} style={{marginLeft:"10px"}}>Выйти</Button>*/}
                     </Nav>

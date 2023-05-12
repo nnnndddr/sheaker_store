@@ -63,6 +63,16 @@ class ShoeController {
         )
         return res.json(shoe)
     }
+    async getOneName(req, res) {
+        const {name} = req.params
+        const shoe = await Shoe.findAndCountAll(
+            {
+                where: {name},
+                include: [{model: ShoeInfo, as: 'info'}]
+            },
+        )
+        return res.json(shoe)
+    }
 
 }
 
